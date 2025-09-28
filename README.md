@@ -1,13 +1,13 @@
 # Aamya Health App
 
-A simple implementation of DashBoard screen[modern UI in Jetpack Compose"].
+A simple implementation of DashBoard screen ["modern UI in Jetpack Compose"].
 
 ---
 
 ## Screenshot
 
-![Screen Screenshot](ss/ss1.png)
-![Screen Screenshot](ss/ss2.png)
+![Screen Screenshot](ss/ss1.jpg)
+![Screen Screenshot](ss/ss2.jpg)
 
 ---
 
