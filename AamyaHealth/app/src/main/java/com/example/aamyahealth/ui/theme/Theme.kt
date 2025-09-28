@@ -26,7 +26,10 @@ private val LightColorScheme = lightColorScheme(
     onPrimary = Color.White,
     onSecondary = Color.White,
     onBackground = TextPrimary,
-    onSurface = TextSecondary
+    onSurface = TextSecondary,
+    secondaryContainer = Purple,
+    inverseOnSurface = Green,
+    inversePrimary = BlueGreen
 
     /* Other default colors to override
     background = Color(0xFFFFFBFE),

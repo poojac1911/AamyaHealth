@@ -4,5 +4,5 @@
     <string name="profile">Profile</string>
     <string name="message">Message</string>
     <string name="appointment">Appointment</string>
-    <string name="placeholder_search">Search by doctor's name</string>
+    <string name="placeholder_search">Search by doctor\'s name</string>
 </resources>

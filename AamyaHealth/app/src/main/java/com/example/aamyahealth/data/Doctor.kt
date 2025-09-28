@@ -5,5 +5,6 @@ data class Doctor(
     val name: String,
     val speciality: String,
     val imageRes: Int,
-    val rating: Double
+    val rating: Double,
+    val color: androidx.compose.ui.graphics.Color,
 )

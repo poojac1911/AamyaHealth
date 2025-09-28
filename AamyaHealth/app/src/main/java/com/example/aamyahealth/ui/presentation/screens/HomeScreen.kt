@@ -50,10 +50,10 @@ import com.example.aamyahealth.ui.presentation.components.WeekDayCardComponent
 fun HomeScreen(navController: NavHostController = rememberNavController()) {
 
     val doctorList = listOf(
-        Doctor(1, "Dr. Ralph Edward", "Dentist Specialist", R.drawable.avatar_doctor_1,4.8),
-        Doctor(2, "Dr. Bessie Cooper", "Surgery Specialist", R.drawable.avatar_doctor_2,4.6),
-        Doctor(3, "Dr. Annette Black", "Urology Specialist", R.drawable.avatar_doctor_3,4.2),
-        Doctor(4, "Dr. Lailas Russell", "Dermatologist", R.drawable.avatar_doctor_1,4.5)
+        Doctor(1, "Dr. Ralph Edward", "Dentist Specialist", R.drawable.avatar_doctor_1,4.8, color = MaterialTheme.colorScheme.surfaceVariant),
+        Doctor(2, "Dr. Bessie Cooper", "Surgery Specialist", R.drawable.avatar_doctor_2,4.6,MaterialTheme.colorScheme.secondaryContainer),
+        Doctor(3, "Dr. Annette Black", "Urology Specialist", R.drawable.avatar_doctor_3,4.2,MaterialTheme.colorScheme.primary),
+        Doctor(4, "Dr. Lailas Russell", "Dermatologist", R.drawable.avatar_doctor_1,4.5,MaterialTheme.colorScheme.secondaryContainer)
     )
     val weekDays = listOf(
         DayItem("Sun", 15),
@@ -67,10 +67,10 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
     var selectedDay by remember { mutableStateOf(weekDays[0].day) }
 
     val sector = listOf(
-        Sector("Hospital", color = Color(0xFF407CE2), painterResource(R.drawable.type_hospital)),
-        Sector("Consultation", color = Color(0xFF65a30d), painterResource(R.drawable.type_consultation)),
-        Sector("Consultation", color = Color(0xFFc026d3), painterResource(R.drawable.type_brain)),
-        Sector("Dental", color = Color(0xFF0891b2), painterResource(R.drawable.type_dental)),
+        Sector("Hospital", color = MaterialTheme.colorScheme.primary, painterResource(R.drawable.type_hospital)),
+        Sector("Consultation", color = MaterialTheme.colorScheme.inverseOnSurface, painterResource(R.drawable.type_consultation)),
+        Sector("Consultation", color = MaterialTheme.colorScheme.secondaryContainer, painterResource(R.drawable.type_brain)),
+        Sector("Dental", color = MaterialTheme.colorScheme.inversePrimary, painterResource(R.drawable.type_dental)),
     )
     val upcomingSchedules = listOf(
         Appointment("Dr. Lailas Russell", "Dermatologist Specialist", "20 September - 12:30 - 10:30 PM", R.drawable.avatar_doctor_2),
@@ -89,18 +89,22 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
         ) {
             item {
                 Row(
-                    modifier = Modifier.fillMaxWidth()
+                    modifier = Modifier
+                        .fillMaxWidth()
                         .padding(12.dp),
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
                     Image(
                         painter = painterResource(id = R.drawable.avatar_user),
                         contentDescription = "Card Image",
-                        modifier = Modifier.size(46.dp).clip(CircleShape),
+                        modifier = Modifier
+                            .size(46.dp)
+                            .clip(CircleShape),
                         contentScale = ContentScale.Crop
                     )
                     IconButtonComponent(
-                        modifier = Modifier.size(46.dp)
+                        modifier = Modifier
+                            .size(46.dp)
                             .shadow(4.dp, CircleShape),
                         colors = IconButtonDefaults.iconButtonColors(
                             contentColor = Color.Black,
@@ -111,7 +115,9 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
                     )
                 }
                 SearchBarTextFieldComponent(
-                    modifier = Modifier.fillMaxWidth().padding(start = 12.dp, end = 12.dp),
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(start = 12.dp, end = 12.dp),
                     search = search,
                     onSearchChange = { search = it }
                 )
@@ -173,13 +179,15 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
                                     }
                                 }
                                 DoctorCardComponent(
-                                    modifier = Modifier.padding(paddingValues).size(110.dp, 100.dp),
+                                    modifier = Modifier
+                                        .padding(paddingValues)
+                                        .size(110.dp, 100.dp),
                                     doctorImage = doctorItem.imageRes,
                                     doctorName = doctorItem.name,
                                     doctorSpeciality = doctorItem.speciality,
                                     rating = doctorItem.rating.toString(),
                                     colors = CardDefaults.cardColors(
-                                        containerColor = MaterialTheme.colorScheme.surfaceVariant,
+                                        containerColor = doctorItem.color.copy(alpha = 0.1f),
                                         contentColor = Color.Black,
                                     )
                                 )
@@ -219,7 +227,9 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
             }
             item {
                 TitleCardComponent(
-                    modifier = Modifier.padding(start = 12.dp, top = 12.dp, end = 12.dp).fillMaxWidth(),
+                    modifier = Modifier
+                        .padding(start = 12.dp, top = 12.dp, end = 12.dp)
+                        .fillMaxWidth(),
                     title = "Upcoming Schedules"
                 )
             }

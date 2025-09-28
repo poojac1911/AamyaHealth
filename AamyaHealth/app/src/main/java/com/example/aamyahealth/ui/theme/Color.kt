@@ -25,3 +25,6 @@ val NavBarSelected = Color(0xFFFFC107)   // selected tab
 val NavBarUnselected = Color(0xFFBDBDBD) // unselected tab
 
 val lightBlue = Color(0xFF407CE2)
+val Purple = Color(0xFFc026d3)
+val Green = Color(0xFF65a30d)
+val BlueGreen = Color(0xFF0891b2)
