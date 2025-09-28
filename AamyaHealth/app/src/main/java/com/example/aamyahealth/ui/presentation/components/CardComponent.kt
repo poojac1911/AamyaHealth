@@ -357,7 +357,7 @@ fun TypeCardComponent(
                 painter = icon,
                 contentDescription = "icon",
                 modifier = Modifier.background(
-                    color = color.copy(alpha = 0.1f),
+                    color = color.copy(alpha = 0.4f),
                     shape = CircleShape
                 ).padding(8.dp).size(20.dp).clip(CircleShape),
             )

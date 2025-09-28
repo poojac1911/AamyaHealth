@@ -52,7 +52,7 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
     val doctorList = listOf(
         Doctor(1, "Dr. Ralph Edward", "Dentist Specialist", R.drawable.avatar_doctor_1,4.8, color = MaterialTheme.colorScheme.surfaceVariant),
         Doctor(2, "Dr. Bessie Cooper", "Surgery Specialist", R.drawable.avatar_doctor_2,4.6,MaterialTheme.colorScheme.secondaryContainer),
-        Doctor(3, "Dr. Annette Black", "Urology Specialist", R.drawable.avatar_doctor_3,4.2,MaterialTheme.colorScheme.primary),
+        Doctor(3, "Dr. Annette Black", "Urology Specialist", R.drawable.avatar_doctor_3,4.2,MaterialTheme.colorScheme.inversePrimary),
         Doctor(4, "Dr. Lailas Russell", "Dermatologist", R.drawable.avatar_doctor_1,4.5,MaterialTheme.colorScheme.secondaryContainer)
     )
     val weekDays = listOf(
@@ -67,7 +67,7 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
     var selectedDay by remember { mutableStateOf(weekDays[0].day) }
 
     val sector = listOf(
-        Sector("Hospital", color = MaterialTheme.colorScheme.primary, painterResource(R.drawable.type_hospital)),
+        Sector("Hospital", color = MaterialTheme.colorScheme.inversePrimary, painterResource(R.drawable.type_hospital)),
         Sector("Consultation", color = MaterialTheme.colorScheme.inverseOnSurface, painterResource(R.drawable.type_consultation)),
         Sector("Consultation", color = MaterialTheme.colorScheme.secondaryContainer, painterResource(R.drawable.type_brain)),
         Sector("Dental", color = MaterialTheme.colorScheme.inversePrimary, painterResource(R.drawable.type_dental)),
@@ -187,7 +187,7 @@ fun HomeScreen(navController: NavHostController = rememberNavController()) {
                                     doctorSpeciality = doctorItem.speciality,
                                     rating = doctorItem.rating.toString(),
                                     colors = CardDefaults.cardColors(
-                                        containerColor = doctorItem.color.copy(alpha = 0.1f),
+                                        containerColor = doctorItem.color,
                                         contentColor = Color.Black,
                                     )
                                 )
